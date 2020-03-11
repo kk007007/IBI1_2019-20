@@ -1,5 +1,5 @@
 # What does this piece of code do?
-# Answer: 
+# Answer: get 1 and prime number
 
 # Import libraries
 # randint allows drawing a random number, 
@@ -15,10 +15,8 @@ while p==False:
     p=True
     n = randint(1,100)
     u = ceil(n**(0.5))
+    #u+1 to solve if the square root is integer
     for i in range(2,u+1):
         if n%i == 0:
             p=False
-
-
-     
 print(n)
