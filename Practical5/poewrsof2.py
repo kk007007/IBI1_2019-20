@@ -6,6 +6,7 @@ Created on Wed Mar 11 10:50:04 2020
 """
 #Here are 3 methods in total, method 3 is the best.
 ##method 1
+#the logic flow behind method 1 is a little repetitve
 import random
 x = random.randint(1,8192)
 x1=x
@@ -34,7 +35,7 @@ while x!=0:
             
 
 
-#method 2
+#method 2 is the simplified version of method1
 import random
 x = random.randint(1,8192)
 x1=x
