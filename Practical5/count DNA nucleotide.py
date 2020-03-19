@@ -27,8 +27,7 @@ for i in DNA:
         T0 += 1
 genes['T']=T0
 print(genes)
-
-
+#start making plot
 import matplotlib.pyplot as plt
 labels = 'A','C','G','T'
 sizes = [A0,C0,G0,T0]

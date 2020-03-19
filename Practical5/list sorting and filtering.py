@@ -4,13 +4,14 @@ Created on Wed Mar 18 10:08:11 2020
 
 @author: 蒋冰
 """
-
+#import the length
 gene_lengths=[9410,3944141,4442,105338,19149,76779,126550,36296,842,15981]
 gene_lengths1=sorted(gene_lengths)
+#follwing the guide, we need to delete the maximun and the minimum
 del(gene_lengths1[9])
 del(gene_lengths1[0])
 print(gene_lengths1)
-
+# start making plot
 import numpy as np
 import matplotlib.pyplot as plt
 score = gene_lengths1

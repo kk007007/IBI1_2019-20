@@ -38,7 +38,6 @@ while x!=0:
 #method 2 is the simplified version of method1
 import random
 x = random.randint(1,8192)
-x1=x
 print(x,"is",sep=" ",end="")
 for i in range(0,14):
         j=13-i
