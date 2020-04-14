@@ -19,10 +19,9 @@ for line in DNA:
     if line.startswith('>'):
         if z != '':
             gene.append(z)
-        sta = re.findall(r'^>\w+',line)
-        sta1 = str(sta)
-        sta2 = sta1[3:8]
-        genename.append(sta2)
+        sta = re.search(r'(gene):(\w+)',line)
+        sta1 = sta.group(2)
+        genename.append(sta1)
         z=''
         x.append(line)
         count += 1 

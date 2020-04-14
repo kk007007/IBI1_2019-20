@@ -1,0 +1,4 @@
+Question£º Find all the country that has less than 10 total deaths cases in 2020-03-31
+Line number: 94~108
+Discussion: The result is what I expected.  138 countries have less than 10 death cases. The result is shown in a dataframe and the
+x-axis are the date, location and total death number, y-axis is the index of row in the origin file.

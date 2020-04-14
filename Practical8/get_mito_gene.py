@@ -38,6 +38,38 @@ xfile.close
 yfile = open('mito_gene.fa')
 for line in yfile:
     print(line)
+######
+import re
+gene=[]
+genename=[]
+z=str()
+count = 0
+x=[]
+DNA = open('Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa')
+for line in DNA:
+    if line.startswith('>'):
+        if z != '':
+            gene.append(z)
+        sta = re.search(r'(gene):(\w+)',line)
+        sta1 = sta.group(2)
+        genename.append(sta1)
+        z=''
+        x.append(line)
+        count += 1 
+    else:
+        line = line.rstrip()
+        z += str(line)
+gene.append(z)
+xfile=open('mito_gene.fa','w')
+for i in range(count):
+    if ':Mito:' in x[i]:
+        a = genename[i] + '       ' + str(len(gene[i])) + '\n'
+        xfile.write(a)
+DNA.close
+xfile.close
+yfile = open('mito_gene.fa')
+for line in yfile:
+    print(line)
 
     
     
