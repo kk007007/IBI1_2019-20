@@ -13,10 +13,12 @@ from math import ceil
 p=False
 while p==False:
     p=True
+# generate a random integer equal to or larger than 1 but smaller than 100
     n = randint(1,100)
     u = ceil(n**(0.5))
     #u+1 to solve if the square root is integer
     for i in range(2,u+1):
         if n%i == 0:
             p=False
+# the result is random
 print(n)
