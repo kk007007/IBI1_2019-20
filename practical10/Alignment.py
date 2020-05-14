@@ -1,265 +1,80 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Apr 19 20:24:02 2020
+Created on Wed Apr 15 10:18:44 2020
 
-@author: 蒋冰
+@author: bluem
 """
-import re
+#reference: blosum62 source get from https://www.ncbi.nlm.nih.gov/Class/FieldGuide/BLOSUM62.txt
+#reference：This practical was guided by Qi Liu
+#import library
 import os
+import re
 import pandas as pd
+#change directory to where the file exist
 os.chdir('D:\GitKraken\IBI1_2019-20\practical10')
-MG= open('SOD2_mouse.fa')
-HG= open('SOD2_human.fa')
-RG= open('RandomSeq.fa')
-BM= pd.read_csv("BLOSUM62 matrix.csv")
-score= 0
-#human-mouse
-import re
-MG1 = []
-for line in MG:
-        MG1 = re.findall(r'\w+',line)
-MG2 = str(MG1)
-MG3 = MG2[2:]
-MG4 = MG3[:-2]
-
-l1 = len(str(MG4))
-HG1 = []
-for line in HG:
-    HG1 = re.findall(r'\w+',line)
-HG2 = str(HG1)
-HG3 = HG2[2:]
-HG4 = HG3[:-2]
-l2 = len(str(HG4))
-seq1 = MG4
-seq2 = HG4
-lseq1 = len(seq1)
-lseq2 = len(seq2)
-print(lseq1)
-edit_distance = 0 
-if lseq1 >= lseq2:
-    for i in range(len(seq1)):
-        if seq1[i] == 'A':
-            a = 0
-        elif seq1[i] == 'R':
-            a = 1
-        elif seq1[i] == 'N':
-            a =2
-        elif seq1[i] == 'D':
-            a =3
-        elif seq1[i] == 'C':
-            a =4
-        elif seq1[i] == 'Q':
-            a=5
-        elif seq1[i] == 'E':
-            a =6
-        elif seq1[i] == 'G':
-            a = 7
-        elif seq1[i] == 'H':
-            a = 8
-        elif seq1[i] == 'I':
-            a = 9
-        elif seq1[i] == 'L':
-            a = 10
-        elif seq1[i] == 'K':
-            a = 11
-        elif seq1[i] == 'M':
-            a = 12
-        elif seq1[i] == 'F':
-            a =13
-        elif seq1[i] == 'P':
-            a =14
-        elif seq1[i] == 'S':
-            a = 15
-        elif seq1[i] == 'T':
-            a = 16
-        elif seq1[i] == 'W':
-            a = 17
-        elif seq1[i] == 'Y':
-            a =18
-        elif seq1[i] == 'V':
-            a = 19
-        elif seq1[i] == 'B':
-            a = 20
-        elif seq1[i] == 'Z':
-            a = 21
-        elif seq1[i] == 'X':
-            a = 22
-        score += BM.loc[a,seq2[i]]	
-print(score)
-print(edit_distance)
-
-# human-random
-import re
-import os
-import pandas as pd
-os.chdir('D:\GitKraken\IBI1_2019-20\practical10')
-MG= open('SOD2_mouse.fa')
-HG= open('SOD2_human.fa')
-RG= open('RandomSeq.fa')
-BM= pd.read_csv("BLOSUM62 matrix.csv")
-score= 0
-HG1 = []
-for line in HG:
-    HG1 = re.findall(r'\w+',line)
-HG2 = str(HG1)
-HG3 = HG2[2:]
-HG4 = HG3[:-2]
-l2 = len(str(HG4))
-seq1 = HG4
-
-RG1=[]
-for line in RG:
-    RG1 = re.findall(r'\w+',line)
-RG2 = str(RG1)
-RG3 = RG2[2:]
-RG4 = RG3[:-2]
-seq3 = RG4
-l3 = len(RG4)
-edit_distance	=	0 
-for	i in range(l3): 
-    if	seq1[i]!=seq3[i]:
-        edit_distance	+=	1   
-print(edit_distance)   								
-
-if lseq1 >= lseq2:
-    for i in range(l3):
-        if seq1[i] == 'A':
-            a = 0
-        elif seq1[i] == 'R':
-            a = 1
-        elif seq1[i] == 'N':
-            a =2
-        elif seq1[i] == 'D':
-            a =3
-        elif seq1[i] == 'C':
-            a =4
-        elif seq1[i] == 'Q':
-            a=5
-        elif seq1[i] == 'E':
-            a =6
-        elif seq1[i] == 'G':
-            a = 7
-        elif seq1[i] == 'H':
-            a = 8
-        elif seq1[i] == 'I':
-            a = 9
-        elif seq1[i] == 'L':
-            a = 10
-        elif seq1[i] == 'K':
-            a = 11
-        elif seq1[i] == 'M':
-            a = 12
-        elif seq1[i] == 'F':
-            a =13
-        elif seq1[i] == 'P':
-            a =14
-        elif seq1[i] == 'S':
-            a = 15
-        elif seq1[i] == 'T':
-            a = 16
-        elif seq1[i] == 'W':
-            a = 17
-        elif seq1[i] == 'Y':
-            a =18
-        elif seq1[i] == 'V':
-            a = 19
-        elif seq1[i] == 'B':
-            a = 20
-        elif seq1[i] == 'Z':
-            a = 21
-        elif seq1[i] == 'X':
-            a = 22
-        score += BM.loc[a,seq3[i]]	
-print(score)
-
-#mouse random
-import re
-import os
-import pandas as pd
-os.chdir('D:\GitKraken\IBI1_2019-20\practical10')
-MG= open('SOD2_mouse.fa')
-HG= open('SOD2_human.fa')
-RG= open('RandomSeq.fa')
-BM= pd.read_csv("BLOSUM62 matrix.csv")
-score= 0
-import re
-MG1 = []
-for line in MG:
-        MG1 = re.findall(r'\w+',line)
-MG2 = str(MG1)
-MG3 = MG2[2:]
-MG4 = MG3[:-2]
-seq1 = MG4
-l1 = len(str(MG4))
-
-RG1=[]
-for line in RG:
-    RG1 = re.findall(r'\w+',line)
-RG2 = str(RG1)
-RG3 = RG2[2:]
-RG4 = RG3[:-2]
-seq3 = RG4
-l3 = len(RG4)
-score = 0
-if l1 >= l3:
-    for i in range(l3):
-        if seq1[i] == 'A':
-            a = 0
-        elif seq1[i] == 'R':
-            a = 1
-        elif seq1[i] == 'N':
-            a =2
-        elif seq1[i] == 'D':
-            a =3
-        elif seq1[i] == 'C':
-            a =4
-        elif seq1[i] == 'Q':
-            a=5
-        elif seq1[i] == 'E':
-            a =6
-        elif seq1[i] == 'G':
-            a = 7
-        elif seq1[i] == 'H':
-            a = 8
-        elif seq1[i] == 'I':
-            a = 9
-        elif seq1[i] == 'L':
-            a = 10
-        elif seq1[i] == 'K':
-            a = 11
-        elif seq1[i] == 'M':
-            a = 12
-        elif seq1[i] == 'F':
-            a =13
-        elif seq1[i] == 'P':
-            a =14
-        elif seq1[i] == 'S':
-            a = 15
-        elif seq1[i] == 'T':
-            a = 16
-        elif seq1[i] == 'W':
-            a = 17
-        elif seq1[i] == 'Y':
-            a =18
-        elif seq1[i] == 'V':
-            a = 19
-        elif seq1[i] == 'B':
-            a = 20
-        elif seq1[i] == 'Z':
-            a = 21
-        elif seq1[i] == 'X':
-            a = 22
-        score += BM.loc[a,seq3[i]]	
-print(score)
-
+#ask user to input two file they want to compare 
+file_name1=input("please input the first fasta file name:")
+file_name2=input("please input the second fasta file name:")
+#read the file and extract the sequence as strings
+file1=open(file_name1).read()
+file2=open(file_name2).read()
+#convert the list to a string
+#reference: taught by Qi Liu
+seq1=''.join(re.findall(r">.+?\n([A-Z]+)",file1))
+seq2=''.join(re.findall(r">.+?\n([A-Z]+)",file2))
+#calculate the hamming distanceS
+#set initial distance as zero
+edit_distance=0 
+#compare each amino acid
+for i in range(len(seq1)): 
+    if seq1[i]!=seq2[i]:
+#add a score 1 if amino acids are different
+        edit_distance+=1 
+#print the result
+print('the hamming distance of two sequence is ',edit_distance)
+#read the "BLOSUM62 matrix.csv" 
+blosum62=pd.read_csv("BLOSUM62 matrix.csv")
+#blosum 62 was read into a dataframe, and the name of the amino acid is in the first column
+#define a function to correspond the amin oacid name to the row number
+#reference： the idea of creating a function to got the corresponding row number was inspired by Qi Liu
+def find(place):
+    j=0
+    while True:
+        #check each amino acid name one by one
+        if blosum62.iloc[j,0]!=place:
+            #add 1 until reached the wanted row number 
+            j+=1
+        if blosum62.iloc[j,0]==place:
+            break
+    return j
+#variable score used to calculate blosum score
+score=0
+#variable alignment used to store blast-like alignment
+alignment=''
+for i in range(len(seq1)):
+    #seperately get out the amino acid in two gene sequence
+    place1=seq1[i]
+    place2=seq2[i]
+#use find function to get the corresponding amino acid row number
+#get the score in blosum62 by giving x,y coordinates
+    score_plus=blosum62.loc[find(place2),place1]
+#acumulate the score
+    score+=score_plus
+#bonus part: print out blast-line alignment
+    # if two amino acid was the same, alignment sign equal to the amino acid
+    if place1==place2:
+        alignment+=place1
+    # if the two amino acid was different, use '+' to indicate conservative	substitutions witch the score is positive
+    elif score_plus>=0:
+        alignment+='+'
+    else:
+    # if the two amino acid was different, use ' ' to indicate unrelated substitution
+        alignment+= " "  
+#print out the result
+print('the bolusum62 score is {}\n'.format(score))
+#use format method to standarize the out. Reference：taught by Qi Liu
+print("seq1:{}".format(seq1))
+print("     {}".format(alignment))
+print("seq2:{}".format(seq2))
     
-
-
-
-
-
-
-
-
-
-        
+    

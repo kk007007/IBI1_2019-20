@@ -4,67 +4,31 @@ Created on Wed Mar 11 10:50:04 2020
 
 @author: 蒋冰
 """
-#Here are 3 methods in total, method 3 is the best.
-##method 1
-#the logic flow behind method 1 is a little repetitve
-import random
-x = random.randint(1,8192)
-x1=x
-# we first need to list the first one 
+#plan: found the biggest powers of 2 which is equal to or smaller than the input number. Minus it. And then find the subsequent biggest power of 2 and minus it. continue until the number reaches 0.
+#we input a positive integer to x, for example 2019 in the script
+input_number = input('please input a number:')
+x = int(input_number)
+#the use of (sep="", end="") is to make the print result in the same line
+print(x,"is ",sep=" ",end="")
+#we assume that x is no	larger than	8192 which is 2**13
 for i in range(0,14):
         j=13-i
-        if x>=2**j and x<2**(j+1):
-            m=j
-            break
-x=x-2**m
-# then we add the rest nunmbers step by step
-#end="" was used to make sure the outcome were in the same line
-#if x=0, we need to discuss it seperately
-if x==0:
-    print(x1,"is","2**",m)
-while x!=0: 
-    print(x1,"is",sep=" ",end="")
-    print("2**",m,sep="",end=" ")
-    for i in range(0,14):
-        j=13-i
-        if x>=2**j:
-            print("+","2**",j,sep="",end=" ")
-            x=x-2**j
-            
-            
-            
-
-
-#method 2 is the simplified version of method1
-import random
-x = random.randint(1,8192)
-print(x,"is",sep=" ",end="")
-for i in range(0,14):
-        j=13-i
+#To find the biggest power of 2, we test from 2**13 down to 2**0
+#if the number is not exactly the power of 2, we can find the current biggest power of 2 which is small than it 
         if x>2**j:
             print("2**",j,sep=" ",end="")
-            print("+",end="")
+            print(" + ",end="")
+#minus the current biggest power of 2
             x=x-2**j
+#if the number is the power of 2, than the number itself is what we want
         elif x==2**j:
             print("2**",j,end="")
+#minus the  power of 2
             x=x-2**j
-            
-#method 3
-#use the knowledge of transfering decimalism into binary system
-x=1500
-y=x
-a=str()
-b=0
-while y>=2:
-    if y%2==0:
-        b=b+1
-    else:
-        a="+" + "2**"+ str(b)+ str(a)
-        b=b+1
-        
-    y=(y-y%2)/2
-a = "2**" + str(b) +str(a)
-print(x,"=",str(a))
+
+
+
+
 
 
 

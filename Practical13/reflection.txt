@@ -1,0 +1,31 @@
+Reflection:
+####Task 1:
+Task 1 was relatively simple, however, problems still occured. At the begging, i was confused with the command 
+mentioned in the guidance:np.random.choice(range(2),4,p=[0.8,0.2]). I used the mathematical expectation
+to carryout the practical. Then I found that the plot won't change and it was not a probabilistic model. Then I got to
+know the meaning in the guidance, we needed to use np.random.choice to simulate the random process of infection
+and recovery. OnceI understood this, the following programming was quick. Anther thing needed to be mentioned 
+was the shape of the line. As the guidance did not tell us how to modify the type of the line. It took me some time 
+to reach the ideal figure.
+
+####Task2:
+In general, Taks2 was similar to Task1. Thus the programming was relatively quick. The main barriers I encounted was
+how to change the color of the line and how to plot 11 curves in one figure . After several attempts, I found out that
+we can change the color by modifyingthe parameter after the cm.virdis and use the same x axis with different list 
+to plot 11 curves together.
+
+####Task3:
+Task3 was brandnew to me and really attracted me. Teachers gave detailed information in the guidance, thus it was 
+not very difficult. At first I tried to wrote my own codes, however, I found I was not familiar with 2D dimentional 
+arrays and failed to extract some information. Finally, I used teachers code as part of my code to finish the practical.
+
+Conclusion: Practical 13 was not very difficult but impressed me. In task one, I got familiar with the basic model used
+ to simulate the spread of infectious disease. In task two I leanrt that herd immunity had its scientific and statistical
+ basis. In task 3, I got a more intuitive understanding of the process of spreading. Through this practical, I enhanced
+my programming skills , understand the spread of infectious diseaseas well as finding the magic power of the 
+programming. The most important things I learnt was the mechanism of probabilistic model. Also, creating 
+different kinds of figures impressed me a lot.
+Things could be done better: when running the 2D model, it takes some time to get the result. Maybe better algorithm
+could be implemented.
+
+
