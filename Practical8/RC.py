@@ -11,6 +11,7 @@ re_seq = str()
 # get the length of the template
 l = len(seq)
 l = l + 1
+#go through all the nucleotide
 for i in range (1,l):
 # start from the end of the template
 # do reverse complementary T->A,A->T,C->G,G->c
@@ -21,6 +22,7 @@ for i in range (1,l):
     elif seq[-i] == 'C':
             re_seq += 'G'
     else: re_seq += 'C'
+#print result
 print(re_seq)
 
                 

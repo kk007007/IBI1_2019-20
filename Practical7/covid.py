@@ -17,7 +17,7 @@ a = covid_data.loc[:,"location"] == 'Afghanistan'
 #find the total row number and assign it to variablt c
 b = covid_data.describe()
 c = int((b.iloc[0,0]))
-d = []
+d = []#list d was used to store row numbers that location is Afghanistan
 for i in range(c):
 #find out the row with the location Afghanistan
     if a[i] == True:
@@ -30,7 +30,7 @@ e = covid_data.loc[:,"location"] == 'World'
 #get the total row number and assign it to  g
 f = covid_data.describe()
 g = int((f.iloc[0,0]))
-j = []
+j = []#list j was used to store row numbers that location is world
 for i in range(g):
     #find out the row with the lication world
     if e[i] == True:
@@ -68,7 +68,7 @@ plt.plot(world_dates, world_new_deaths, 'r+')
 plt.plot(world_dates, world_new_cases, 'b+')
 plt.ylabel('Numbers')#add y label
 plt.xlabel('Date')#add x label
-plt.title('Daily new cases and new death')
+plt.title('Daily new cases and new death')#add title
     #interval of dates is 4 and clockwise rotate 90 degree
 plt.xticks(world_dates.iloc[0:len(world_dates):4],rotation=-90)
 plt.show()
@@ -78,7 +78,7 @@ a = covid_data.loc[:,"date"] == '2020-03-31'
 #find the total row number that date is 2020-03-31 and assign it to variablt c
 b = covid_data.describe()
 c = int((b.iloc[0,0]))
-d = []
+d = []# list d used to store row number that date is 2020-03-31 and the total death number smaller than 10
 # find the country with total death less than 10
 e = covid_data.loc[:,"total_deaths"]  < 10
 for i in range(c):

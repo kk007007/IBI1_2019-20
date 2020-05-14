@@ -1,0 +1,2 @@
+Reflective reprot
+Now is near the ending of semester two and i have finished all the practical in IBI1. It is a good time to reflect all the practical i had done and contribute to future study. In formative portfolio, the feedback said that the pseudocode was weak and i did not explain things clearly. And in the subsequent practical, I wrote detailed pseudocode to help myself understand the code better. Also, I learnt from the experience of programming that when i encountered a problem, i shoud first think rigorously instead of quickly start programming.

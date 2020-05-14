@@ -17,7 +17,6 @@ del(gene_lengths1[0])
 print(gene_lengths1)
 # start making plot
 #import libraries 
-import numpy as np
 import matplotlib.pyplot as plt
 score = gene_lengths1
 #the boxplot is orange and contains meanline
