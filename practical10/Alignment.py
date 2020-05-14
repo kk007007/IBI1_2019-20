@@ -7,11 +7,9 @@ Created on Wed Apr 15 10:18:44 2020
 #reference: blosum62 source get from https://www.ncbi.nlm.nih.gov/Class/FieldGuide/BLOSUM62.txt
 #reference：This practical was guided by Qi Liu
 #import library
-import os
 import re
 import pandas as pd
 #change directory to where the file exist
-os.chdir('D:\GitKraken\IBI1_2019-20\practical10')
 #ask user to input two file they want to compare 
 file_name1=input("please input the first fasta file name:")
 file_name2=input("please input the second fasta file name:")
