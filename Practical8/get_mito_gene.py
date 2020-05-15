@@ -4,6 +4,8 @@ Created on Tue Mar 31 23:06:28 2020
 
 @author: 蒋冰
 """
+#my spyder would get two differnet result , I think there's some mistakes with my spyder
+#hope my code works well foe you
 #reference: the method that first creating a list that stored the gene name, gene length and then check if it is mitochondria chromosome was inspired by a classmate called Jincheng Cheng
 import re
 #creat list used to store gene and its gene name
@@ -34,8 +36,8 @@ for line in DNA:
         #add 1, indicates one more gene found
         count += 1 
     #add the gene sequence
-    else:
-        line = line.rstrip()#delete blank 
+    else:# if the line don't have '>', this line containing the sequence.
+        line = line.rstrip()#deletethe '\n' and add them to a string.
         z += str(line)
 #add the result of the last run
 gene.append(z)
@@ -46,11 +48,13 @@ for i in range(count):
     if ':Mito:' in x[i]:
         #correspond genename and gene length
         a = '\n' + genename[i] + '    ' + str(len(gene[i])) + '\n'
-        seq = gene[i]
+        seq = gene[i]+'\n'
         xfile.write(a) #write gene name and gene length into new fasta file
         xfile.write(seq)#write gene sequence into it
 xfile.close#colse file
-
+zfile=open('mito_gene.fa','r')
+for line in zfile:
+    print(line)
     
     
     

@@ -4,8 +4,10 @@ Created on Sat Apr  4 14:08:06 2020
 
 @author: 蒋冰
 """
+#my spyder would get two differnet result , I think there's some mistakes with my spyder
+#hope my code works well foe you
 #Task3 is the combination of Task 1 and Task 2
-#line 9~ 30 is the work of Task2, tries to get out gene name and gene sequence
+#line 24~45 is the work of Task2, tries to get out gene name and gene sequence
 #import library
 import re
 #creat list used to store gene and its gene name
