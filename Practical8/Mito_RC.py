@@ -4,7 +4,7 @@ Created on Sat Apr  4 14:08:06 2020
 
 @author: 蒋冰
 """
-#my spyder would get two differnet result , I think there's some mistakes with my spyder
+#my spyder would get two differnet result, and randomly will generate a exit.fa  I think there's some mistakes with my spyder
 #hope my code works well foe you
 #Task3 is the combination of Task 1 and Task 2
 #line 24~45 is the work of Task2, tries to get out gene name and gene sequence

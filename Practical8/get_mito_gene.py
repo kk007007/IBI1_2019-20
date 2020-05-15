@@ -4,7 +4,7 @@ Created on Tue Mar 31 23:06:28 2020
 
 @author: 蒋冰
 """
-#my spyder would get two differnet result , I think there's some mistakes with my spyder
+#my spyder would get two differnet result , and randomly will generate a exit.fa I think there's some mistakes with my spyder
 #hope my code works well foe you
 #reference: the method that first creating a list that stored the gene name, gene length and then check if it is mitochondria chromosome was inspired by a classmate called Jincheng Cheng
 import re
