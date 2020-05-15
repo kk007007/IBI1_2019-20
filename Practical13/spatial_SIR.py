@@ -52,14 +52,14 @@ for i in range(100):
     if i ==9:
         plt.figure(figsize =(6,4),dpi=150) 
         plt.imshow(population,cmap='viridis',interpolation='nearest')
-        plt.savefig("spatial 10%",type="png" )
+        plt.savefig("spatial 10%",type="png" )#save image
     elif i ==49:
         plt.figure(figsize =(6,4),dpi=150) 
         plt.imshow(population,cmap='viridis',interpolation='nearest')
-        plt.savefig("spatial 50%",type="png" )
+        plt.savefig("spatial 50%",type="png" )#save image
     elif i ==99:
         plt.figure(figsize =(6,4),dpi=150) 
         plt.imshow(population,cmap='viridis',interpolation='nearest')
-        plt.savefig("spatial 100%",type="png" )
+        plt.savefig("spatial 100%",type="png" )#save image
         
         

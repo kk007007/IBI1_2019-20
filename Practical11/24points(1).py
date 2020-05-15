@@ -22,20 +22,21 @@ input_numbers = input('''Please input numbers to compute 24:(use ',' to divide t
 nums = re.split(',', input_numbers)
 #get out input numbers 
 for item in nums:
-    input_nums.append(float(item))
+    input_nums.append(float(item))#use float to guaranteen fraction calculation is possible
 #define a function called 'Function ', which contains all possible 5 operations between 2 number
-def Function(a,b,funtion):
+def Function(a,b,funtion):#using this fucntion, we take 5 kind of classified discussion,so the estimated the complexity at this step: O(5)
 #define global variable
     global c,recursion_time
 #use number 1~5 to represent the 5 operations
     if funtion == 1:
-        c = a + b
+        c = a + b# add
     elif funtion == 2:
-        c = a * b
-    elif funtion == 3:
+        c = a * b# multiply
+    elif funtion == 3:# minus
         c = a - b# we do not consider whetehr the result is positive or negative beacause we can change the previous step' + or - to reach the same effect
                  # and eliminate one classified classification would outstandingly reduce the operation process
-    elif funtion == 4:
+    elif funtion == 4:# divide
+        #when dividing ,we deperate it into two parts to make it clearer
         if b == 0.0:
 #if the denominator is 0, we would abandon the susequent process, which would lead to calculate all the meaningful recursion time
             c = 'stop'
@@ -49,9 +50,11 @@ def Function(a,b,funtion):
 #if any intermediate precess reahced 24, the funtion would break
     if c == 24.0:
         recursion_time += 1
+        #print out the result
         print('Yes')
         print('Recursion times:',recursion_time)
         # end the function
+        #reference：https://blog.csdn.net/tomorrowsummer/article/details/92843007
         sys.exit()
     else:
         return c
@@ -108,7 +111,7 @@ else:
 #if we cannot find 24, print'no'
     print('No')
     print('Recursion times:',recursion_time)
-
+#Big O: [[(5/2)**n]*[(n-1)!)**2]]*n, n is the number of input numbers
 
 
 

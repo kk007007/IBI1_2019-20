@@ -26,8 +26,8 @@ for j in range(11):
         N = 10000
         #get the susceptible population number
         susceptible = 9999 - Vaccine_rate*N
-        infected = 1
-        recovered = 0
+        infected = 1#set original infected people
+        recovered = 0#set original recovered people
 # beta indicates the infection probability upon contact, gamma indicates the recover probability
         beta = 0.3
         gamma = 0.05
@@ -35,13 +35,13 @@ for j in range(11):
 # need : variable 'a' indicated the contact rate, variable 'c' indicates the infected possibility
         I[j] = []
         # list X was used to function as the x axis
-        X = []
+        X = []#clear list X each turn to store new information
         # under each vaccination circumstance, run 1000times to simulate
         for i in range(1000):
             #variable 'a' indicated the contact rate
-            a = infected/N
+            a = infected/N# each turn calculate new contact rate
             #variable 'c' indicates the infected possibility
-            c = a*beta
+            c = a*beta#each turn calculate new infected possibility
             b = 1- c
             # each turn X add i to form the x axis
             X.append(i)
@@ -53,22 +53,22 @@ for j in range(11):
             f = e.tolist()
 # delete all the '0' in the list and remain a list contains various '1'
 # use len method to get out the number of infected people in this turn
-            S2 = len(delete(f,0))
+            S2 = len(delete(f,0))#calculate new infected people
             susceptible = susceptible - S2
-            #add new infected people
+            #add new infected people to infected population
             infected += S2
 #similar method mentiond before to get recovered people
             g = np.random.choice(range(2),infected,p=[0.95,0.05])
             #convert to list format
             h = g.tolist()
-            I2 = len(delete(h,0))
+            I2 = len(delete(h,0))#calculate new recoverd people
             #delete new recovered people from infected population
             infected = infected - I2
-            I[j].append(infected)
+            I[j].append(infected)#add nubers of infected to list to help tract the evolvement ot infected population
     else:
 #mentioned in line 20
         I[j] = []
-        X = []
+        X = []#clear list
         for i in range(1000):  
             #each turn X add i to form the x axis
             X.append(i)
@@ -88,8 +88,8 @@ plt.plot(X,I[7],color = cm.viridis(350),marker = ',',linestyle = '-',label = '70
 plt.plot(X,I[8],color = cm.viridis(400),marker = ',',linestyle = '-',label = '80%')
 plt.plot(X,I[9],color = cm.viridis(450),marker = ',',linestyle = '-',label = '90%')
 plt.plot(X,I[10],color = cm.viridis(500),marker = ',',linestyle = '-',label = '100%')
-plt.title('SIR model with different vaccination rate')
-plt.xlabel('time')
-plt.ylabel('number of people')
+plt.title('SIR model with different vaccination rate')#add title
+plt.xlabel('time')#add x label
+plt.ylabel('number of people')#add y label
 plt.legend()
-plt.savefig("simulation with different vaccination rate",type="png" )
+plt.savefig("simulation with different vaccination rate",type="png")#save image

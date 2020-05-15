@@ -21,7 +21,7 @@ x=[]# X list used to store lines that contains gene information
 #open file
 DNA = open('Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa')
 for line in DNA:
-     #find the line that contain gene name and description
+     #find the line that contain gene name and description by checking '>' sign
     if line.startswith('>'):
         if z != '':
             gene.append(z)
@@ -49,7 +49,7 @@ file_name = file_name1 + str('.fa')
 #open a new fasta file and modify it
 xfile=open(file_name,'w')
 for i in range(count):
-     # check if it is mitochondria chromosome
+     # check if it is mitochondria chromosome by finding '>' in line
     if ':Mito:' in x[i]:
         #correspond genename and gene length
         a = '\n' + '>' + genename[i] + '       ' + str(len(gene[i])) + '\n'
@@ -70,7 +70,3 @@ for i in range(count):
         xfile.write(a)# write gene name and gene length into new fasta file
         xfile.write(re_seq)#write reverse gene sequence into new fasta file
 xfile.close#close new fasta file
-#print the file to check
-yfile = open(file_name)
-for line in yfile:
-    print(line)

@@ -16,9 +16,10 @@ else:
     print("result : e and a are equal")
 #Booleans task
 print('Booleans task:')
-#creat boolean variable X and Y
-x= False
-y = True
+#Create and input a Booleans variable X 
+x=eval(input("please input a Boolean variable X="))
+#Create and input a Booleans variable Y
+y=eval(input("please input a Boolean variable Y="))
 # Calculate the value of Z and W
 Z = (x and not y) or (y and not x)
 W = (x!=y)

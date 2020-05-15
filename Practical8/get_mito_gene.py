@@ -17,7 +17,7 @@ x=[]# X list used to store lines that contains gene information
 DNA = open('Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa')
 #line 18 ~30 tried to extract gene name and gene sequence into list
 for line in DNA:
-    #find the line that contain gene name and description
+    #find the line that contain gene name and description by checking '>' sign
     if line.startswith('>'):
         if z != '':
             gene.append(z)
@@ -35,14 +35,14 @@ for line in DNA:
         count += 1 
     #add the gene sequence
     else:
-        line = line.rstrip()
+        line = line.rstrip()#delete blank 
         z += str(line)
 #add the result of the last run
 gene.append(z)
 #create a new file called mito_gene
 xfile=open('mito_gene.fa','w')
 for i in range(count):
-    # check if it is mitochondria chromosome
+    # check if it is mitochondria chromosome by finding ':Mito:' in line
     if ':Mito:' in x[i]:
         #correspond genename and gene length
         a = '\n' + genename[i] + '    ' + str(len(gene[i])) + '\n'
@@ -50,10 +50,7 @@ for i in range(count):
         xfile.write(a) #write gene name and gene length into new fasta file
         xfile.write(seq)#write gene sequence into it
 xfile.close#colse file
-# print the mito_gene out to check
-yfile = open('mito_gene.fa')
-for line in yfile:
-    print(line)
+
     
     
     

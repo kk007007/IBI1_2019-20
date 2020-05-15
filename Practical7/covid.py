@@ -41,8 +41,8 @@ world_new_cases = covid_data.loc[j,"new_cases"]
 #calculate meam and median
 mean = np.mean(world_new_cases)
 median = np.median(world_new_cases)
-print('\n','the mean of new cases for the entire world is :',mean)
-print('\n','the median of new cases for the entire world is: ',median)
+print('\n','the mean of new cases for the entire world is :',mean)#print mean
+print('\n','the median of new cases for the entire world is: ',median)#print median
 #plot boxplot of world new cases
 plt.boxplot(world_new_cases,
             vert=True,#make the boxplot vertical

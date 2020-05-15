@@ -14,12 +14,12 @@ list1 = []
 index = []
 # variable 'count' used for storing the number of childnodes
 count = 0
-#get out all the descendants with the tag 'term'
-DOMTree = xml.dom.minidom.parse('go_obo.xml')
-collection = DOMTree.documentElement
-GO = collection.getElementsByTagName("term")   
+DOMTree = xml.dom.minidom.parse('go_obo.xml')#open needed file
+collection = DOMTree.documentElement#getout element
+GO = collection.getElementsByTagName("term")#get out all the descendants with the tag 'term'
 #the finding functon is used to findall the needed childnodes related to the input gene 'a'
 def finding(a):  
+    #globalize variable
     global id,id1,child,count
 #the variable 'count' will add 1 everytime when the function is called, thus the total childnodes number will be count-1
     count += 1
@@ -29,7 +29,7 @@ def finding(a):
     for go in GO:
 #line 30~32 used to check if the 'go' has the tag 'is_a'
         child = go.getElementsByTagName('is_a')
-        b = child.length
+        b = child.length#know how many element was found
         if b !=0:
             #if <is_a> tag existed, get out all the element in the is_a tag
             for j in range(b):
@@ -37,10 +37,10 @@ def finding(a):
                 child1 = go.getElementsByTagName('is_a')[j]
                 c[j] = child1.childNodes[0].data
 # if we can find the gene we input in the tag 'is_a' , than we do recursion until no more childnodes existed
-                if c[j].find(a) != -1:
+                if c[j].find(a) != -1:#wanted gene existed
                     id = go.getElementsByTagName('id')[0]
-                    id1 = id.childNodes[0].data
-                    finding(id1)
+                    id1 = id.childNodes[0].data# find out the id which contains wanted gene
+                    finding(id1)#recursion and find more childnodes until no more childnodes existed
 # the reason for minus 1 mentioned in the line 24
     return(count-1)
 i = 1
@@ -49,15 +49,15 @@ for go in GO:
     check = go.getElementsByTagName('defstr')[0]
     a = check.childNodes[0].data
 #check if it is related to autophagosome
-    if a.find('autophagosome') != -1:
+    if a.find('autophagosome') != -1:#if its description contaisn autophagosome
         name = go.getElementsByTagName('name')[0]
-        name1 = name.childNodes[0].data
+        name1 = name.childNodes[0].data#get out its name in <name> tag
 #get out the id
         id = go.getElementsByTagName('id')[0]
-        id2 = id.childNodes[0].data
+        id2 = id.childNodes[0].data#get out its id in tag <id>
         #clear the count value, important!!
         count = 0
-        childnodes = finding(id2)
+        childnodes = finding(id2)#find childnodes
 # form a list wichi contains id,name,definition and the number of childnodes
         b=[id2,name1,a,childnodes]
         #list 1 contains column content for excel
